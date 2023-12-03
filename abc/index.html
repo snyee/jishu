@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="1.css">
+  <title>计数</title>
+</head>
+
+<body>
+  <main>
+    <div id="ruleBox">
+      <div class="title pb">规 则</div>
+
+      <div class="pb item">
+        <div class="item1">
+          <div class="text">单杀</div>
+          <input type="text" class="input successColor" id="DanShaInput">
+        </div>
+
+        <div class="item2">
+          <div class="text">被单杀</div>
+          <input type="text" class="input failColor" id="BeiDanShaInput">
+        </div>
+      </div>
+
+      <div class="pb item">
+        <div class="item1">
+          <div class="text">赢</div>
+          <input type="text" class="input successColor" id="YingInput">
+        </div>
+
+        <div class="item2">
+          <div class="text">输</div>
+          <input type="text" class="input failColor" id="ShuInput">
+        </div>
+      </div>
+
+      <div class="pb item">
+        <div class="item1">
+          <div class="text">击杀</div>
+          <input type="text" class="input successColor" id="JiShaInput">
+        </div>
+
+        <div class="item2">
+          <div class="text">死亡</div>
+          <input type="text" class="input failColor" id="SiWangInput">
+        </div>
+      </div>
+
+      <div class="pb item">
+        <div class="item1">
+          <div class="text">MVP倍数</div>
+          <input type="text" class="input successColor" id="MVPBeiShuInput">
+        </div>
+      </div>
+
+      <div class="pb item small">
+        <div class="item1">
+          <div class="text">一次不死</div>
+          <input type="text" class="input successColor" id="NoDieInput">
+        </div>
+
+        <div class="item2">
+          <div class="text">对位一次不死</div>
+          <input type="text" class="input failColor" id="DNoDieInput">
+        </div>
+      </div>
+
+      <div class="item small">
+        <div class="item1">
+          <div class="text">超神</div>
+          <input type="text" class="input successColor" id="ChaoShenInput">
+        </div>
+
+        <div class="item2">
+          <div class="text">对位超神</div>
+          <input type="text" class="input failColor" id="DChaoShenInput">
+        </div>
+      </div>
+
+      <div class="pb item small">
+        <div class="item1">
+          <div class="text">超鬼</div>
+          <input type="text" class="input failColor" id="ChaoGuiInput">
+        </div>
+
+        <div class="item2">
+          <div class="text">对位超鬼</div>
+          <input type="text" class="input  successColor" id="DChaoGuiInput">
+        </div>
+      </div>
+
+      <div class="item small">
+        <div class="item1">
+          <div class="text">三杀</div>
+          <input type="text" class="input  successColor" id="SanShaInput">
+        </div>
+
+        <div class="item2">
+          <div class="text">对位三杀</div>
+          <input type="text" class="input failColor " id="DSanShaInput">
+        </div>
+      </div>
+
+      <div class="item small">
+        <div class="item1">
+          <div class="text">四杀</div>
+          <input type="text" class="input successColor" id="SiShaInput">
+        </div>
+
+        <div class="item2">
+          <div class="text">对位四杀</div>
+          <input type="text" class="input  failColor" id="DSiShaInput">
+        </div>
+      </div>
+
+      <div class="item small pb">
+        <div class="item1">
+          <div class="text">五杀</div>
+          <input type="text" class="input successColor" id="WuShaInput">
+        </div>
+
+        <div class="item2">
+          <div class="text">对位五杀</div>
+          <input type="text" class="input  failColor" id="DWuShaInput">
+        </div>
+      </div>
+
+      <div id="save">保 存</div>
+
+      <div id="savePopup">
+        保存成功 ! 不设置默认是 0, MVP倍数是 1
+        <div class="close">×</div>
+      </div>
+
+    </div>
+
+    <div id="computeBox">
+      <div class="title pb">计 数</div>
+
+      <div class="item">
+        <div class="text">单杀次数</div>
+        <input type="text" class="input" id="DanShaNumInput">
+        <div class="show successColor" id="showDanShaNum"></div>
+      </div>
+
+      <div class="item pb">
+        <div class="text">被单杀次数</div>
+        <input type="text" class="input" id="BeiDanShaNumInput">
+        <div class="show failColor" id="showBeiDanShaNum"></div>
+      </div>
+
+      <div class="item pb">
+        <div class="text">赢</div>
+
+        <div id="YSbtn" class="successYSbtn QQbtn">
+          <div class="circle leftCircle"></div>
+        </div>
+
+        <div class="text ShuText">输</div>
+
+        <div class="show successColor" id="showYS"></div>
+      </div>
+
+      <div class="item">
+        <div class="text">击杀次数</div>
+        <input type="text" class="input" id="JiShaNumInput">
+        <div class="show successColor" id="showJiShaNum"></div>
+      </div>
+
+      <div class="item pb">
+        <div class="text">MVP</div>
+        <div id="MVPbtn" class="commonbtn">
+          <div class="commoncircle right"></div>
+        </div>
+      </div>
+
+      <div class="item pb">
+        <div class="text">死亡次数</div>
+        <input type="text" class="input" id="SiWangNumInput">
+        <div class="show failColor" id="showSiWangNum"></div>
+      </div>
+
+      <div class="item">
+        <div class="text">对位MVP</div>
+        <div id="DMVPbtn" class="commonbtn">
+          <div class="commoncircle right"></div>
+        </div>
+      </div>
+
+      <div class="item pb">
+        <div class="text">对位击杀次数</div>
+        <input type="text" class="input" id="DJiShaNumInput">
+        <div class="show failColor" id="showDJiShaNum"></div>
+      </div>
+
+      <div class="item">
+        <div class="text">一次不死</div>
+        <div id="NoDiebtn" class="commonbtn">
+          <div class="commoncircle right"></div>
+        </div>
+        <div class="show successColor" id="showNoDieNum"></div>
+      </div>
+
+      <div class="item">
+        <div class="text">对位一次不死</div>
+        <div id="DNoDiebtn" class="commonbtn">
+          <div class="commoncircle right"></div>
+        </div>
+        <div class="show failColor" id="showDNoDieNum"></div>
+      </div>
+
+      <div id="tab">
+        <div class="reset">重新计数</div>
+        <div class="compute">计算</div>
+        <div class="total"></div>
+      </div>
+
+    </div>
+
+    <div id="computeBox2">
+      <div class="title pb">计 数 二</div>
+
+      <div class="item">
+        <div class="text">超神</div>
+        <div id="ChaoShenbtn" class="commonbtn">
+          <div class="commoncircle right"></div>
+        </div>
+        <div class="show successColor" id="showChaoShenNum"></div>
+      </div>
+
+      <div class="item">
+        <div class="text">超鬼</div>
+        <div id="ChaoGuibtn" class="commonbtn">
+          <div class="commoncircle right"></div>
+        </div>
+        <div class="show failColor" id="showChaoGuiNum"></div>
+      </div>
+
+      <div class="item">
+        <div class="text">对位超神</div>
+        <div id="DChaoShenbtn" class="commonbtn">
+          <div class="commoncircle right"></div>
+        </div>
+        <div class="show failColor" id="showDChaoShenNum"></div>
+      </div>
+
+      <div class="item pb">
+        <div class="text">对位超鬼</div>
+        <div id="DChaoGuibtn" class="commonbtn">
+          <div class="commoncircle right"></div>
+        </div>
+        <div class="show successColor" id="showDChaoGuiNum"></div>
+      </div>
+
+
+
+      <div class="item">
+        <div class="text">三杀</div>
+        <div id="SanShabtn" class="commonbtn">
+          <div class="commoncircle right"></div>
+        </div>
+        <div class="show successColor" id="showSanShaNum"></div>
+      </div>
+
+      <div class="item">
+        <div class="text">四杀</div>
+        <div id="SiShabtn" class="commonbtn">
+          <div class="commoncircle right"></div>
+        </div>
+        <div class="show successColor" id="showSiShaNum"></div>
+      </div>
+
+      <div class="item">
+        <div class="text">五杀</div>
+        <div id="WuShabtn" class="commonbtn">
+          <div class="commoncircle right"></div>
+        </div>
+        <div class="show successColor" id="showWuShaNum"></div>
+      </div>
+
+      <div class="item">
+        <div class="text">对位三杀</div>
+        <div id="DSanShabtn" class="commonbtn">
+          <div class="commoncircle right"></div>
+        </div>
+        <div class="show failColor" id="showDSanShaNum"></div>
+      </div>
+
+      <div class="item">
+        <div class="text">对位四杀</div>
+        <div id="DSiShabtn" class="commonbtn">
+          <div class="commoncircle right"></div>
+        </div>
+        <div class="show failColor" id="showDSiShaNum"></div>
+      </div>
+
+      <div class="item">
+        <div class="text">对位五杀</div>
+        <div id="DWuShabtn" class="commonbtn">
+          <div class="commoncircle right"></div>
+        </div>
+        <div class="show failColor" id="showDWuShaNum"></div>
+      </div>
+
+    </div>
+
+
+  </main>
+
+  <script src="1.js"></script>
+</body>
+
+</html>
